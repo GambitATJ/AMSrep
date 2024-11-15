@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block content %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg')}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Cancel Schedule</h1>
+                            <span class="subheading">Search with ScheduleID and cancel Schedule</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+
+                    <main class="mb-4">
+                        <div class="container px-4 px-lg-5">
+                            <div class="row gx-4 gx-lg-5 justify-content-center">
+                                <div class="col-md-10 col-lg-8 col-xl-7">
+                                    <div class="my-5">
+                                        <form name="sentMessage" id="contactForm" action = "/dltsch" method="post" novalidate>
+                                            <div class="control-group">
+                                              <div class="form-group floating-label-form-group controls">
+                                                <label>ScheduleID</label>
+                                                <input type="text" class="form-control" placeholder="ScheduleID" id="name" name='schedule' required data-validation-required-message="Please enter your name.">
+                                                <p class="help-block text-danger"></p>
+                                              </div>
+                                            </div>
+                                            <br>
+                                            <div id="success"></div>
+                                            <div class="form-group">
+                                            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+                                            </div>
+                                            
+                                          </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
+                    <hr>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ScheduleID</th>
+                                <th>FlightNo</th>
+                                <th>Day Of Week</th>
+                                <th>Departure Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for sche in schedule %}
+                            <tr>
+                                <td>{{sche.ScheduleID}}</td>
+                                <td>{{sche.FlightNo}}</td>
+                                <td>{{sche.DayOfWeek}}</td>
+                                <td>{{sche.DepartureTime}}</td>
+                                <td><a href="/cancelsch/{{sche.ScheduleID}}"><button>Cancel</button></a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
+ 
+                    <!-- Pager-->
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block content %}
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/contact-bg.jpg')}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Create Airline Account</h1>
+                            <span class="subheading">Enter the Airline Details</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+          <div class="container px-4 px-lg-5">
+              <div class="row gx-4 gx-lg-5 justify-content-center">
+                  <div class="col-md-10 col-lg-8 col-xl-7">
+                      <p>Fill out the details</p>
+                      <div class="my-5">
+                          <!-- * * * * * * * * * * * * * * *-->
+                          <!-- * * SB Forms Contact Form * *-->
+                          <!-- * * * * * * * * * * * * * * *-->
+                          <!-- This form is pre-integrated with SB Forms.-->
+                          <!-- To make this form functional, sign up at-->
+                          <!-- https://startbootstrap.com/solution/contact-forms-->
+                          <!-- to get an API token!-->
+                          <form name="sentMessage" id="contactForm" action = "/addairline" method="post" novalidate>
+                              <div class="control-group">
+                                  <div class="form-group floating-label-form-group controls">
+                                    <label>AirlineID</label>
+                                    <input type="text" class="form-control" placeholder="AirlineID" id="username" name='airlineid' required data-validation-required-message="Please enter your name.">
+                                    <p class="help-block text-danger"></p>
+                                  </div>  
+                                </div>
+                            
+                              
+                              <div class="control-group">
+                                <div class="form-group floating-label-form-group controls">
+                                  <label>Name</label>
+                                  <input type="text" class="form-control" placeholder="Name" id="email" name="name" required data-validation-required-message="Please enter your email address.">
+                                  <p class="help-block text-danger"></p>
+                                </div>
+                              </div>
+                              
+                              <div class="control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                  <label>Code</label>
+                                  <input type="text" class="form-control" placeholder="Code" name="code" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                  <p class="help-block text-danger"></p>
+                                </div>
+                              </div>
+                              
+                              <br>
+                              <div id="success"></div>
+                              <div class="form-group">
+                                <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+                              </div>
+                            </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </main>
+        {% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block content %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/contact-bg.jpg')}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Airline Interface</h1>
+                            <span class="subheading">Interface for Airline Companies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+
+                    <div class="post-preview">
+                        <a href="/addairline">
+                            <h2 class="post-title">Create Airline Account</h2>
+                            
+                        </a>
+                        
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+
+                    <div class="post-preview">
+                        <a href="/addaircraft">
+                            <h2 class="post-title">Add Aircraft Details</h2>
+                            
+                        </a>
+                        
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+
+                    <div class="post-preview">
+                        <a href="/addflight">
+                            <h2 class="post-title">Add Flight Details</h2>
+                            
+                        </a>
+                        
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+
+                    <div class="post-preview">
+                        <a href="/addsch">
+                            <h2 class="post-title">Add Schedule Details</h2>
+                            
+                        </a>
+                        
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <a href="/dltsch">
+                            <h2 class="post-title">Delete Schedule Details</h2>
+                            
+                        </a>
+                        
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+ 
+                    <!-- Pager-->
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+{% endblock %}  

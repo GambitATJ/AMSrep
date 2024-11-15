@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+{% block content %}
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/contact-bg.jpg')}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Book Ticket</h1>
+                            <span class="subheading">Book your ticket</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>Fill out your details</p>
+                        <div class="my-5">
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- * * SB Forms Contact Form * *-->
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- This form is pre-integrated with SB Forms.-->
+                            <!-- To make this form functional, sign up at-->
+                            <!-- https://startbootstrap.com/solution/contact-forms-->
+                            <!-- to get an API token!-->
+                            <form name="sentMessage" id="contactForm" action = "/bookticket" method="post" novalidate>
+                              <div class="control-group">
+                                <div class="form-group floating-label-form-group controls">
+                                    <label>UserName</label>
+                                    <select class="form-control" id="name" name="uname" required>
+                                        <option value="">Select Username</option>
+                                        {% for user in userns %}
+                                            <option value="{{ user.username }}">{{ user.username }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                                
+                            <div class="control-group">
+                              <div class="form-group floating-label-form-group controls">
+                                  <label>Start Airport</label>
+                                  <select class="form-control" id="name" name="start" required>
+                                      <option value="">Select Airport</option>
+                                      {% for st in startap %}
+                                          <option value="{{ st.City }}">{{ st.City }}</option>
+                                      {% endfor %}
+                                  </select>
+                                  <p class="help-block text-danger"></p>
+                              </div>
+                          </div>
+
+                          <div class="control-group">
+                            <div class="form-group floating-label-form-group controls">
+                                <label>Destination Airport</label>
+                                <select class="form-control" id="name" name="end" required>
+                                    <option value="">Select Airport</option>
+                                    {% for st in startap %}
+                                        <option value="{{ st.City }}">{{ st.City }}</option>
+                                    {% endfor %}
+                                </select>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+
+                        
+                                
+                                
+                                <div class="control-group">
+                                  <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label>Date</label>
+                                    <input type="date" class="form-control" placeholder="Phone Number" id="date" name="date"  required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                  </div>
+                                </div>  
+                                
+                                <br>
+                                <div id="success"></div>
+                                <div class="form-group">
+                                  <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+                                </div>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% endblock %}

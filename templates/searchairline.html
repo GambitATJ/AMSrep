@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block content %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg')}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Search Airline</h1>
+                            <span class="subheading">Search AirlineID and get their details</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+
+                    <main class="mb-4">
+                        <div class="container px-4 px-lg-5">
+                            <div class="row gx-4 gx-lg-5 justify-content-center">
+                                <div class="col-md-10 col-lg-8 col-xl-7">
+                                    <div class="my-5">
+                                        <form name="sentMessage" id="contactForm" action = "/searchairline" method="post" novalidate>
+                                            <div class="control-group">
+                                              <div class="form-group floating-label-form-group controls">
+                                                <label>AirlineID</label>
+                                                <input type="text" class="form-control" placeholder="AirlineID" id="searchh" name='airline' required data-validation-required-message="Please enter your name.">
+                                                <p class="help-block text-danger"></p>
+                                              </div>
+                                            </div>
+                                            <br>
+                                            <div id="success"></div>
+                                            <div class="form-group">
+                                            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+                                            </div>
+                                            
+                                          </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
+                    <hr>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>AirlineID</th>
+                                <th>Name</th>
+                                <th>Code</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for air in airline %}
+                            <tr>
+                                <td>{{air.AirlineID}}</td>
+                                <td>{{air.Name}}</td>
+                                <td>{{air.Code}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
+ 
+                    <!-- Pager-->
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+{% endblock %}

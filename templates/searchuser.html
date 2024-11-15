@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block content %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg')}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Search User</h1>
+                            <span class="subheading">Search username and get their details</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+
+                    <main class="mb-4">
+                        <div class="container px-4 px-lg-5">
+                            <div class="row gx-4 gx-lg-5 justify-content-center">
+                                <div class="col-md-10 col-lg-8 col-xl-7">
+                                    <div class="my-5">
+                                        <form name="sentMessage" id="contactForm" action = "/searchuser" method="post" novalidate>
+                                            <div class="control-group">
+                                              <div class="form-group floating-label-form-group controls">
+                                                <label>Username</label>
+                                                <input type="text" class="form-control" placeholder="UserName" id="searchh" name='searchh' required data-validation-required-message="Please enter your name.">
+                                                <p class="help-block text-danger"></p>
+                                              </div>
+                                            </div>
+                                            <br>
+                                            <div id="success"></div>
+                                            <div class="form-group">
+                                            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+                                            </div>
+                                            
+                                          </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
+                    <hr>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Name</th>
+                                <th>Phone_Number</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                            <tr>
+                                <td>{{user.username}}</td>
+                                <td>{{user.name}}</td>
+                                <td>{{user.phone_num}}</td>
+                                <td>{{user.email}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
+ 
+                    <!-- Pager-->
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+{% endblock %}

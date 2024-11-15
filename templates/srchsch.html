@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% block content %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg')}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Flight Schedules</h1>
+                            <span class="subheading">Search for Flight Schedules</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+
+                    <main class="mb-4">
+                        <div class="container px-4 px-lg-5">
+                            <div class="row gx-4 gx-lg-5 justify-content-center">
+                                <div class="col-md-10 col-lg-8 col-xl-7">
+                                    <div class="my-5">
+                                        <form name="sentMessage" id="contactForm" action = "/srchsch" method="post" novalidate>
+                                            <div class="control-group">
+                                              <div class="form-group floating-label-form-group controls">
+                                                <label>Origin</label>
+                                                <input type="text" class="form-control" placeholder="Name" id="name1" name='origin' required data-validation-required-message="Please enter your name.">
+                                                <p class="help-block text-danger"></p>
+                                              </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <div class="form-group floating-label-form-group controls">
+                                                  <label>Destination</label>
+                                                  <input type="text" class="form-control" placeholder="Name" id="name2" name='destination' required data-validation-required-message="Please enter your name.">
+                                                  <p class="help-block text-danger"></p>
+                                                </div>
+                                              </div>
+                                            <br>
+                                            <div id="success"></div>
+                                            <div class="form-group">
+                                            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+                                            </div>
+                                            
+                                          </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
+                    <hr>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Airline</th>
+                                <th>Flight Number</th>
+                                <th>Origin</th>
+                                <th>Destination</th>
+                                <th>Departure Time</th>
+                                <th>Duration</th>
+                                <th>Day of Week</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for flight, schedule, aircraft in combined_data %}
+                            <tr>
+                                <td>{{aircraft.Airline}}</td>
+                                <td>{{flight.FlightNo}}</td>
+                                <td>{{flight.Origin}}</td>
+                                <td>{{flight.Destination}}</td>
+                                <td>{{schedule.DepartureTime}}</td>
+                                <td>{{flight.Duration}}</td>
+                                <td>{{schedule.DayOfWeek}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
+ 
+                    <!-- Pager-->
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+{% endblock %}
